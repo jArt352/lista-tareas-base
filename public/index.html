@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mis tareas</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main class="tarjeta">
+    <header>
+      <h1>Mis tareas</h1>
+      <p class="subtitulo">Anota lo que tienes que hacer y marca lo que ya terminaste.</p>
+    </header>
+
+    <form id="formulario" class="formulario" autocomplete="off">
+      <label for="campo" class="oculto">Nueva tarea</label>
+      <input id="campo" type="text" placeholder="¿Qué tienes que hacer?">
+      <button type="submit">Agregar</button>
+    </form>
+    <p id="aviso" class="aviso" role="alert"></p>
+
+    <ul id="lista" class="lista"></ul>
+    <p id="vacio" class="vacio">Todavía no hay tareas. Escribe la primera arriba.</p>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

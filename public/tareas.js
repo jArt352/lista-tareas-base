@@ -1,6 +1,6 @@
-// Lógica de la lista de tareas.
+// Reglas de la lista de tareas.
 // Todas las funciones reciben una lista y devuelven una lista NUEVA.
-// Aquí no se leen ni se escriben archivos: eso es trabajo de cli.js.
+// Aquí no hay pantalla ni almacenamiento: eso es trabajo de app.js.
 
 export function crearTarea(lista, titulo) {
   if (titulo === '') {
@@ -10,14 +10,10 @@ export function crearTarea(lista, titulo) {
   return [...lista, { id, titulo, completada: false }];
 }
 
-export function completarTarea(lista, id) {
+export function alternarTarea(lista, id) {
   const existe = lista.some((t) => t.id === id);
   if (!existe) {
     throw new Error(`No existe la tarea con id ${id}`);
   }
-  return lista.map((t) => (t.id === id ? { ...t, completada: true } : t));
-}
-
-export function listarTareas(lista) {
-  return lista.map((t) => `${t.completada ? '[x]' : '[ ]'} ${t.id}. ${t.titulo}`);
+  return lista.map((t) => (t.id === id ? { ...t, completada: !t.completada } : t));
 }

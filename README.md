@@ -1,6 +1,6 @@
-# Lista de tareas
+# Mis tareas
 
-Mini aplicación de línea de comandos para anotar tareas pendientes. Es el proyecto de práctica de la sesión 10.
+Una lista de tareas en una página web. Anotas lo que tienes que hacer y marcas lo que ya terminaste. Es el proyecto de práctica de la sesión 10.
 
 ## Requisitos
 
@@ -9,15 +9,15 @@ Mini aplicación de línea de comandos para anotar tareas pendientes. Es el proy
 
 No hay que instalar dependencias.
 
-## Uso
+## Cómo verla
 
 ```bash
-node src/cli.js agregar "Comprar pan"
-node src/cli.js listar
-node src/cli.js completar 1
+npm start
 ```
 
-Las tareas se guardan en `tareas.json`, en la carpeta desde donde ejecutas el comando.
+Luego abre http://localhost:3000 en tu navegador. Para detenerla, pulsa `Ctrl + C` en la terminal.
+
+Las tareas se guardan en tu navegador, así que siguen ahí al recargar la página.
 
 ## Pruebas
 
@@ -28,7 +28,10 @@ npm test
 ## Estructura
 
 ```
-src/tareas.js         reglas de las tareas (sin archivos ni pantalla)
-src/cli.js            entrada por comandos, lectura y guardado en tareas.json
+public/index.html     la página
+public/estilos.css    los colores y el diseño
+public/app.js         la pantalla: botones, texto y guardado en el navegador
+public/tareas.js      las reglas de las tareas (sin pantalla)
+server.js             servidor mínimo para ver la página
 test/tareas.test.js   pruebas de las reglas
 ```

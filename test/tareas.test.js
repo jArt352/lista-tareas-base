@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { completarTarea, crearTarea, listarTareas } from '../src/tareas.js';
+import { alternarTarea, crearTarea } from '../public/tareas.js';
 
 test('crearTarea agrega una tarea pendiente con id 1 en una lista vacía', () => {
   const lista = crearTarea([], 'Comprar pan');
@@ -22,16 +22,16 @@ test('crearTarea no modifica la lista original', () => {
   assert.equal(original.length, 0);
 });
 
-test('completarTarea marca la tarea indicada', () => {
-  const lista = completarTarea(crearTarea([], 'Comprar pan'), 1);
+test('alternarTarea marca como completada una tarea pendiente', () => {
+  const lista = alternarTarea(crearTarea([], 'Comprar pan'), 1);
   assert.equal(lista[0].completada, true);
 });
 
-test('completarTarea falla si el id no existe', () => {
-  assert.throws(() => completarTarea([], 99), /No existe la tarea/);
+test('alternarTarea vuelve a dejar pendiente una tarea completada', () => {
+  const lista = alternarTarea(alternarTarea(crearTarea([], 'Comprar pan'), 1), 1);
+  assert.equal(lista[0].completada, false);
 });
 
-test('listarTareas muestra el estado de cada tarea', () => {
-  const lista = completarTarea(crearTarea(crearTarea([], 'Uno'), 'Dos'), 2);
-  assert.deepEqual(listarTareas(lista), ['[ ] 1. Uno', '[x] 2. Dos']);
+test('alternarTarea falla si el id no existe', () => {
+  assert.throws(() => alternarTarea([], 99), /No existe la tarea/);
 });
