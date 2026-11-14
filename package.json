@@ -1,0 +1,9 @@
+{
+  "name": "lista-tareas",
+  "version": "1.0.0",
+  "description": "Mini proyecto de práctica: lista de tareas por línea de comandos",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
